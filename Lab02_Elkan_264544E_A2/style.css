@@ -1,0 +1,538 @@
+/*Design*/
+@font-face {
+    font-family: 'myfont';
+    src: url('./font/BebasNeue-Regular') format('ttf');
+}
+
+h1 {
+    font-family: "myfont";
+    font-size: 2em;
+    color: #dce4ff;
+}
+
+h2 {
+    font-family: "myfont";
+    font-size: 1.5em;
+    color: #e6e6e6;
+}
+
+h3 {
+    font-family: "myfont";
+    font-size: 10em;
+    color: white;
+}
+
+h4 {
+    font-family: "myfont";
+    font-size: 1.4em;
+    color: white;
+}
+
+p {
+    font-family: "myfont";
+    font-size: 1.3em;
+    color: #dce4ff;
+}
+
+.textcolor {
+    color: #dce4ff;
+}
+
+.gamebox {
+    position: relative;
+    background: white;
+    height: 500px;
+    width: 750px;
+}
+
+#archer {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 175px;
+}
+
+.enemy {
+    position: absolute;
+    right: 0px;
+}
+
+#enemy1,
+#enemy2,
+#enemy3 {
+    display: flex;
+}
+
+#enemy1 {
+    top: 50px;
+}
+
+#enemy2 {
+    top: 175px;
+}
+
+#enemy3 {
+    top: 300px;
+}
+
+#over {
+    background-color: #2a2a2b;
+    display: none;
+}
+
+#gamestart {
+    border: 3px solid white;
+    background-color: rgb(48, 47, 47);
+    margin-right: 10px;
+}
+
+#gamestop {
+    border: 3px solid #dce4ff;
+    background-color: #2a2a2b;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: none;
+}
+
+#mobileArrow {
+    position: absolute;
+    top: 475px;
+    display: none;
+    background: rgb(223, 172, 172);
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#gamerestart {
+    border: 3px solid #dce4ff;
+    background-color: #2a2a2b;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: none;
+}
+
+#arrow {
+    position: absolute;
+    left: 120px;
+    top: 175px;
+    display: none;
+
+}
+
+#shoot {
+    display: none;
+    border: 3px solid #dce4ff;
+    background-color: #2a2a2b;
+    margin-top: 10px;
+}
+
+.cutline {
+    background: rgb(235, 244, 244);
+    width: auto;
+    height: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.click {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.click:hover {
+    transform: translateY(3px);
+    opacity: 0.7;
+}
+
+.background {
+    background-image: url("./images/bow.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#page1b {
+    margin-right: 10px;
+    font-size: 1.5em;
+    font-family: "myfont";
+    color: #dce4ff;
+}
+
+#page2b {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 1.5em;
+    font-family: "myfont";
+    color: #dce4ff;
+}
+
+#page3b {
+    margin-left: 10px;
+    font-size: 1.5em;
+    font-family: "myfont";
+    color: #dce4ff;
+}
+
+#page1 {
+    background-color: rgba(23, 22, 22, 0.7);
+}
+
+.page.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#page2 {
+    background-color: rgba(23, 22, 22, 0.7);
+}
+
+#page3 {
+    background-color: rgba(23, 22, 22, 0.7);
+}
+
+#Icon {
+    display: none;
+    color: #dce4ff;
+    font-size: 1.2em;
+    font-family: "myfont";
+}
+
+#navbar {
+    background-color: rgba(52, 46, 46, 0.4);
+    justify-content: center;
+}
+
+.quiz,
+.close {
+    display: none;
+}
+
+.startquiz,
+.close {
+    width: 100px;
+    height: 70px;
+    background: transparent;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 20px 360px;
+}
+
+.flex1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    text-align: center;
+    bottom: 0;
+}
+
+.bigword {
+    margin: 15% 32%;
+}
+
+.center {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.cardbox {
+    border: 1px solid #dce4ff;
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    background-image: url("./images/one.jpg");
+    margin-top: 10px;
+}
+
+.box {
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    margin-right: 10px;
+}
+
+footer {
+    background-color: rgba(207, 219, 255, 0.3);
+}
+
+#line1,
+#line2,
+#line3,
+#line4,
+#line5,
+#line6,
+#line7 {
+    background: cyan;
+    width: 5px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-3px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+#wKey {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: 400px;
+    display: none;
+    background: rgb(223, 172, 172);
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 2em;
+    border-radius: 20px;
+}
+
+#sKey {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: 440px;
+    display: none;
+    background: rgb(223, 172, 172);
+    border: 1px solid black;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 2em;
+    border-radius: 20px;
+}
+
+.textcolor2 {
+    color: bisque;
+}
+
+.textcolor3 {
+    font-family: "myfont";
+    font-size: 1.7em;
+    color: #dce4ff;
+}
+
+
+
+/*Responsive Web Development*/
+@media (max-width:800px) {
+    h1 {
+        font-size: 1.8em;
+        color: #dce4ff;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h3 {
+        font-size: 6em;
+    }
+
+    h4 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .bigword {
+        position: relative;
+        margin-bottom: 345px;
+    }
+
+    .flex {
+        display: flex;
+        left: 0px;
+    }
+
+    .box {
+        display: flex;
+        margin-left: 295px;
+        width: 200px;
+    }
+
+    #Icon {
+        display: block;
+        background-color: #2a2a2b;
+        border-radius: 20px;
+        width: 150px;
+        height: 90px;
+    }
+
+    nav {
+        width: auto;
+        display: none;
+    }
+
+    nav.menuShow {
+        display: block;
+    }
+
+    nav button {
+        display: block;
+        width: 100%;
+    }
+
+
+    #mobileArrow {
+        display: flex;
+        top: 475px;
+    }
+
+    #wKey {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        top: 400px;
+        display: flex;
+        background: rgb(223, 172, 172);
+        border: 1px solid black;
+        cursor: pointer;
+        font-size: 2em;
+        border-radius: 20px;
+    }
+
+    #sKey {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        top: 440px;
+        display: flex;
+        background: rgb(223, 172, 172);
+        border: 1px solid black;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 2em;
+        border-radius: 20px;
+    }
+}
+
+/*Function*/
+#scorebox {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.menuShow {
+    display: block;
+}
+
+.page {
+    width: auto;
+    height: auto;
+    width: auto;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#line1.show,
+#line2.show,
+#line3.show,
+#line4.show,
+#line5.show,
+#line6.show,
+#line7.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+nav ul li {
+    display: inline;
+}
+
+
+#overlay,
+#overlay1,
+#overlay2,
+#overlay3,
+#overlay4,
+#overlay5,
+#overlay6 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.showOverlay {
+    opacity: 1;
+}
+
+.textcolor1 {
+    color: black;
+}
+
+/* The white box inside the overlay */
+#overlayContent,
+#overlayContent1,
+#overlayContent2,
+#overlayContent3,
+#overlayContent4,
+#overlayContent5,
+#overlayContent6 {
+    background-color: white;
+    width: 500px;
+    height: auto;
+    padding: 30px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.showOverlay #overlayContent,
+.showOverlay #overlayContent1,
+.showOverlay #overlayContent2,
+.showOverlay #overlayContent3,
+.showOverlay #overlayContent4,
+.showOverlay #overlayContent5,
+.showOverlay #overlayContent6 {
+    transform: translateY(0);
+}
+
+/* X button */
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
