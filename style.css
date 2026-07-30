@@ -337,10 +337,10 @@ footer {
 
 #qr {
     display: flex;
-    position: relative;
-    right: 75px;
-    bottom: 70px;
-    height: 10px;
+    position: fixed;
+    right: 0px;
+    bottom: 10px;
+    color: #f5f6f9;
 }
 
 #gameM,
