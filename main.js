@@ -203,11 +203,12 @@ var gameRunning = false;
 var arrowFlying = false;
 const gamebox = document.querySelector(".gamebox");
 const gameover = document.getElementById("over");
-const enemyX = [650, 650, 650];
+const enemyX = [(gamebox.offsetleft), (gamebox.offsetleft), (gamebox.offsetleft)];
 var timeLeft;
 var timerInterval;
 function startTimer() {
-
+    clearInterval(timerInterval);
+    
     timeLeft = 30;
 
     gametimer.innerHTML = "Timer: " + timeLeft;
@@ -245,21 +246,7 @@ function moveEnemies() {
         enemy1.style.left = enemyX[0] + "px";
         enemy2.style.left = enemyX[1] + "px";
         enemy3.style.left = enemyX[2] + "px";
-
-        // Respawn enemy 1
-        if (enemyX[0] < -50) {
-            enemyX[0] = gamebox.offsetWidth;
-        }
-
-        // Respawn enemy 2
-        if (enemyX[1] < -50) {
-            enemyX[1] = gamebox.offsetWidth;
-        }
-
-        // Respawn enemy 3
-        if (enemyX[2] < -50) {
-            enemyX[2] = gamebox.offsetWidth;
-        }
+        
         if (enemyX[0] < 10) {
             gameover.style.display = "block";
             gameover.innerHTML = "<h2>Game Over</h2>";
@@ -328,9 +315,9 @@ function restartgame() {
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
     // Reset enemy positions
-    enemyX[0] = 700;
-    enemyX[1] = 700;
-    enemyX[2] = 700;
+    enemyX[0] = gamebox.offsetWidth - 50;
+    enemyX[1] = gamebox.offsetWidth - 50;
+    enemyX[2] = gamebox.offsetWidth - 50;
 
     enemy1.style.left = enemyX[0] + "px";
     enemy2.style.left = enemyX[1] + "px";
@@ -367,7 +354,7 @@ function moveArrow() {
             enemy1.style.display = "none";
 
             setTimeout(function () {
-                enemyX[0] = 650;
+                enemyX[0] = gamebox.offsetWidth - 50;
                 enemy1.style.left = enemyX[0] + "px";
                 enemy1.style.display = "flex";
             }, 2000);
@@ -383,7 +370,7 @@ function moveArrow() {
             enemy2.style.display = "none";
 
             setTimeout(function () {
-                enemyX[1] = 650;
+                enemyX[1] = gamebox.offsetWidth - 50;
                 enemy2.style.left = enemyX[1] + "px";
                 enemy2.style.display = "flex";
             }, 1500);
@@ -400,7 +387,7 @@ function moveArrow() {
             enemy3.style.display = "none";
 
             setTimeout(function () {
-                enemyX[2] = 650;
+                enemyX[2] = gamebox.offsetWidth - 50;
                 enemy3.style.left = enemyX[2] + "px";
                 enemy3.style.display = "flex";
             }, 1000);
