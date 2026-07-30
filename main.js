@@ -233,9 +233,62 @@ function startTimer() {
     }, 1000);
     
 }
+// function moveEnemies() {
+
+//     if (gameRunning == true) {
+//         enemyX[0] -= 1;
+//         enemyX[1] -= 1;
+//         enemyX[2] -= 1;
+
+//         enemy1.style.left = enemyX[0] + "px";
+//         enemy2.style.left = enemyX[1] + "px";
+//         enemy3.style.left = enemyX[2] + "px";
+
+//         // Respawn enemy 1
+//         if (enemyX[0] < -50) {
+//             enemyX[0] = gamebox.offsetWidth;
+//         }
+
+//         // Respawn enemy 2
+//         if (enemyX[1] < -50) {
+//             enemyX[1] = gamebox.offsetWidth;
+//         }
+
+//         // Respawn enemy 3
+//         if (enemyX[2] < -50) {
+//             enemyX[2] = gamebox.offsetWidth;
+//         }
+//         if (enemyX[0] < 10) {
+//             gameover.style.display = "block";
+//             gameover.innerHTML = "<h2>Game Over</h2>";
+//             gameRunning = false;
+//             shooter.style.display = "none";
+//                 clearInterval(timerInterval);
+
+//         }
+//                 if (enemyX[1] < 10) {
+//             gameover.style.display = "block";
+//             gameover.innerHTML = "<h2>Game Over</h2>";
+//             gameRunning = false;
+//             shooter.style.display = "none";
+//                 clearInterval(timerInterval);
+//         }
+//                 if (enemyX[2] < 10) {
+//             gameover.style.display = "block";
+//             gameover.innerHTML = "<h2>Game Over</h2>";
+//             gameRunning = false;
+//             shooter.style.display = "none";
+//                 clearInterval(timerInterval);
+//         }
+    
+//     }
+// enemyAnimation = requestAnimationFrame(moveEnemies);
+                
+// }
 function moveEnemies() {
 
     if (gameRunning == true) {
+
         enemyX[0] -= 1;
         enemyX[1] -= 1;
         enemyX[2] -= 1;
@@ -258,34 +311,26 @@ function moveEnemies() {
         if (enemyX[2] < -50) {
             enemyX[2] = gamebox.offsetWidth;
         }
-        if (enemyX[0] < 10) {
-            gameover.style.display = "block";
-            gameover.innerHTML = "<h2>Game Over</h2>";
-            gameRunning = false;
-            shooter.style.display = "none";
-                clearInterval(timerInterval);
 
-        }
-                if (enemyX[1] < 10) {
+        // Game Over
+        if (enemyX[0] < 10 ||
+            enemyX[1] < 10 ||
+            enemyX[2] < 10) {
+
             gameover.style.display = "block";
             gameover.innerHTML = "<h2>Game Over</h2>";
+
             gameRunning = false;
             shooter.style.display = "none";
-                clearInterval(timerInterval);
+            clearInterval(timerInterval);
         }
-                if (enemyX[2] < 10) {
-            gameover.style.display = "block";
-            gameover.innerHTML = "<h2>Game Over</h2>";
-            gameRunning = false;
-            shooter.style.display = "none";
-                clearInterval(timerInterval);
+
+        // Continue animation ONLY if game is running
+        if (gameRunning == true) {
+            enemyAnimation = requestAnimationFrame(moveEnemies);
         }
-    
     }
-enemyAnimation = requestAnimationFrame(moveEnemies);
-                
 }
-
 
 
 
@@ -298,6 +343,7 @@ const gamerestart = document.getElementById("gamerestart");
 const shooter = document.getElementById("shoot");
 var enemyAnimation;
 function startGame() {
+    cancelAnimationFrame(enemyAnimation);
     gameRunning = true;
 
     startTimer();
