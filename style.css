@@ -342,7 +342,32 @@ footer {
     bottom: 10px;
     color: #f5f6f9;
 }
+a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    margin: 10px;
+    border: 2px solid #d4a373;
+    border-radius: 5px;
+    background-color: #5c3a21;
+    transition: 0.3s ease;
+}
 
+/* When you hover over the link */
+a:hover {
+    background-color: #d4a373;
+    color: #3b2414;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* When you click the link */
+a:active {
+    transform: translateY(0px);
+}
 #gameM,
 #target {
     display: none;
