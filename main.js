@@ -322,10 +322,7 @@ function restartgame() {
     archer.style.top = archerY + "px";
     // Stop timer
     clearInterval(timerInterval);
-    
-        enemyX[0] -= 1;
-        enemyX[1] -= 1;
-        enemyX[2] -= 1;
+
     // Reset timer
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
