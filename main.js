@@ -203,12 +203,17 @@ var gameRunning = false;
 var arrowFlying = false;
 const gamebox = document.querySelector(".gamebox");
 const gameover = document.getElementById("over");
-const enemyX = [(gamebox.offsetleft), (gamebox.offsetleft), (gamebox.offsetleft)];
+const enemyX = [
+    gamebox.offsetWidth - 50,
+    gamebox.offsetWidth - 50,
+    gamebox.offsetWidth - 50
+];
 var timeLeft;
 var timerInterval;
+var enemyInterval;
+const startButton = document.getElementById("gamestart");
 function startTimer() {
     clearInterval(timerInterval);
-    
     timeLeft = 30;
 
     gametimer.innerHTML = "Timer: " + timeLeft;
@@ -221,10 +226,10 @@ function startTimer() {
 
         // Time is up
         if (timeLeft <= 0) {
-
-            clearInterval(timerInterval);
-
             gameRunning = false;
+            clearInterval(timerInterval);
+            clearInterval(enemyInterval);
+
 
             gametimer.innerHTML = "You survived!";
             gameover.style.display = "block";
@@ -237,80 +242,88 @@ function startTimer() {
 }
 function moveEnemies() {
 
-    if (gameRunning == true) {
+    enemyX[0] -= 1;
+    enemyX[1] -= 1;
+    enemyX[2] -= 1;
 
-        enemyX[0] -= 1;
-        enemyX[1] -= 1;
-        enemyX[2] -= 1;
+    enemy1.style.left = enemyX[0] + "px";
+    enemy2.style.left = enemyX[1] + "px";
+    enemy3.style.left = enemyX[2] + "px";
 
-        enemy1.style.left = enemyX[0] + "px";
-        enemy2.style.left = enemyX[1] + "px";
-        enemy3.style.left = enemyX[2] + "px";
-        
-        if (enemyX[0] < 10) {
-            gameover.style.display = "block";
-            gameover.innerHTML = "<h2>Game Over</h2>";
-            gameRunning = false;
-            shooter.style.display = "none";
-                clearInterval(timerInterval);
-
-        }
-                if (enemyX[1] < 10) {
-            gameover.style.display = "block";
-            gameover.innerHTML = "<h2>Game Over</h2>";
-            gameRunning = false;
-            shooter.style.display = "none";
-                clearInterval(timerInterval);
-        }
-                if (enemyX[2] < 10) {
-            gameover.style.display = "block";
-            gameover.innerHTML = "<h2>Game Over</h2>";
-            gameRunning = false;
-            shooter.style.display = "none";
-                clearInterval(timerInterval);
-        }
+    // Respawn enemy 1
+    if (enemyX[0] < -50) {
+        enemyX[0] = gamebox.offsetWidth- 50;
     }
 
-    requestAnimationFrame(moveEnemies);
+    // Respawn enemy 2
+    if (enemyX[1] < -50) {
+        enemyX[1] = gamebox.offsetWidth- 50;
+    }
+
+    // Respawn enemy 3
+    if (enemyX[2] < -50) {
+        enemyX[2] = gamebox.offsetWidth - 50;
+    }
+
+    // Game Over
+    if (enemyX[0] < 10 || enemyX[1] < 10 || enemyX[2] < 10) {
+
+        gameRunning = false;
+
+        gameover.style.display = "block";
+        gameover.innerHTML = "<h2>Game Over</h2>";
+
+        shooter.style.display = "none";
+
+        clearInterval(timerInterval);
+        clearInterval(enemyInterval);
+    }
+}
+function startGame() {
+    gameRunning = true;
+
+    startTimer();
+
+    // Make sure there isn't an old interval
+    clearInterval(enemyInterval);
+
+    // Move enemies every 10 milliseconds
+    enemyInterval = setInterval(moveEnemies, 10);
+
+    stopButton.style.display = "block";
+    gamerestart.style.display = "block";
+    shooter.style.display = "block";
+    startButton.style.display = "none";
+}
+function stopGame() {
+
+    gameRunning = false;
+
+    shooter.style.display = "none";
+    arrow.style.display = "none";
+
+    clearInterval(timerInterval);
+    clearInterval(enemyInterval);
 }
 
-
-
-
-
-var startButton = document.getElementById("gamestart");
 var stopButton = document.getElementById("gamestop");
 startButton.addEventListener("click", startGame);
 var gamescore = 0;
 const gamerestart = document.getElementById("gamerestart");
 const shooter = document.getElementById("shoot");
 
-function startGame() {
-    gameRunning = true;
-
-    startTimer();
-    moveEnemies();
-    stopButton.style.display = "block";
-    gamerestart.style.display = "block";
-    shooter.style.display = "block";
-    startButton.style.display = "none";
-}
 
 stopButton.addEventListener("click", stopGame);
-
-function stopGame() {
-    gameRunning = false;
-    shooter.style.display = "none";
-    arrow.style.display = "none";
-    clearInterval(timerInterval);
-}
 function restartgame() {
+        gameRunning = false;
+
+    clearInterval(timerInterval);
+    clearInterval(enemyInterval);
     // Reset archer position
     archerY = 175;
     archer.style.top = archerY + "px";
     // Stop timer
     clearInterval(timerInterval);
-
     // Reset timer
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
@@ -334,7 +347,7 @@ function restartgame() {
     startButton.style.display = "block";
     gamerestart.style.display = "none";
     arrow.style.display = "none";
-    gameRunning = false;
+    
 }
 gamerestart.addEventListener("click", restartgame);
 const arrowSound = new Audio("./audio/arrowsound.mp3");
