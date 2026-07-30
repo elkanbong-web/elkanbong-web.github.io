@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 const page1b = document.querySelector("#page1b");
 const page2b = document.querySelector("#page2b");
 const page3b = document.querySelector("#page3b");
