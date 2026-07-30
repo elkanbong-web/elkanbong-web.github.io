@@ -280,6 +280,9 @@ function moveEnemies() {
             shooter.style.display = "none";
                 clearInterval(timerInterval);
         }
+                if (gameRunning == true) {
+            enemyAnimation = requestAnimationFrame(moveEnemies);
+                }
     }
 
 enemyAnimation = requestAnimationFrame(moveEnemies);
@@ -326,7 +329,7 @@ function restartgame() {
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
 
-        cancelAnimationFrame(enemyAnimation);
+    cancelAnimationFrame(enemyAnimation);
     // Reset enemy positions
     enemyX[0] = 700;
     enemyX[1] = 700;
