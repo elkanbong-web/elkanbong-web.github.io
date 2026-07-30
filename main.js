@@ -282,9 +282,8 @@ function moveEnemies() {
         }
     
     }
-                if (gameRunning == true) {
 enemyAnimation = requestAnimationFrame(moveEnemies);
-                }
+                
 }
 
 
