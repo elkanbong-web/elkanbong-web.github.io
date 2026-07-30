@@ -236,7 +236,6 @@ function startTimer() {
 function moveEnemies() {
 
     if (gameRunning == true) {
-
         enemyX[0] -= 1;
         enemyX[1] -= 1;
         enemyX[2] -= 1;
@@ -323,9 +322,9 @@ function restartgame() {
     // Stop timer
     clearInterval(timerInterval);
     
-        enemyX[0] -= 1;
-        enemyX[1] -= 1;
-        enemyX[2] -= 1;
+        enemyX[0] = 650;
+        enemyX[1] = 650;
+        enemyX[2] = 650;
     // Reset timer
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
