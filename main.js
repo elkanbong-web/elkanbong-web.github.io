@@ -282,7 +282,7 @@ function moveEnemies() {
         }
     }
 
-    requestAnimationFrame(moveEnemies);
+enemyAnimation = requestAnimationFrame(moveEnemies);
 }
 
 
@@ -295,7 +295,7 @@ startButton.addEventListener("click", startGame);
 var gamescore = 0;
 const gamerestart = document.getElementById("gamerestart");
 const shooter = document.getElementById("shoot");
-
+var enemyAnimation;
 function startGame() {
     gameRunning = true;
 
@@ -313,6 +313,7 @@ function stopGame() {
     gameRunning = false;
     shooter.style.display = "none";
     arrow.style.display = "none";
+        cancelAnimationFrame(enemyAnimation);
     clearInterval(timerInterval);
 }
 function restartgame() {
@@ -321,13 +322,11 @@ function restartgame() {
     archer.style.top = archerY + "px";
     // Stop timer
     clearInterval(timerInterval);
-    
-        enemyX[0] = 650;
-        enemyX[1] = 650;
-        enemyX[2] = 650;
     // Reset timer
     timeLeft = 30;
     gametimer.innerHTML = "Timer: 30";
+
+        cancelAnimationFrame(enemyAnimation);
     // Reset enemy positions
     enemyX[0] = 700;
     enemyX[1] = 700;
