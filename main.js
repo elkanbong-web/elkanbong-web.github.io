@@ -280,12 +280,11 @@ function moveEnemies() {
             shooter.style.display = "none";
                 clearInterval(timerInterval);
         }
-                if (gameRunning == true) {
-            enemyAnimation = requestAnimationFrame(moveEnemies);
-                }
+    
     }
-
+                if (gameRunning == true) {
 enemyAnimation = requestAnimationFrame(moveEnemies);
+                }
 }
 
 
