@@ -48,12 +48,12 @@ function toggleMenus() {
     }
 }
 const bigword = document.querySelector(".bigword");
-function goHome() {
-    hideall();
+// function goHome() {
+//     hideall();
 
-    bigword.style.display = "block";
-}
-const homeButton = document.querySelector("#home");
+//     bigword.style.display = "block";
+// }
+// const homeButton = document.querySelector("#home");
 
 homeButton.addEventListener("click", goHome);
 const lines = document.querySelectorAll(
