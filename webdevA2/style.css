@@ -45,18 +45,13 @@ p {
     background-repeat: no-repeat;
 }
 
-/* Bow */
-.bow {
+.image1 {
     background-position: 0 0;
 }
-
-/* Target */
-.target {
+.image2 {
     background-position: 100px 0;
 }
-
-/* Arrow */
-.arrow {
+.image3 {
     background-position: 200px 0;
 }
 .gamebox {
