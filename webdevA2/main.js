@@ -118,6 +118,7 @@ for (let closeBtn of closeButtons) {
             line4.style.display = "block";
             line5.style.display = "block";
             line6.style.display = "block";
+            line7.style.display = "block";
 
         }, 100);
     });
