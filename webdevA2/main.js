@@ -90,6 +90,7 @@ for (let openBtn of openButtons) {
         line4.style.display = "none";
         line5.style.display = "none";
         line6.style.display = "none";
+        line7.style.display = "none";
 
         setTimeout(function() {
             overlay.classList.add("showOverlay");
