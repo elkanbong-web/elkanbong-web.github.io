@@ -13,12 +13,12 @@
 
   "screenshots": [
     {
-      "src": "images/mobile-screenshot.png",
+      "src": "images/mobile-1080x1920.png",
       "sizes": "1080x1920",
       "type": "image/png"
     },
     {
-      "src": "images/desktop-screenshot.png",
+      "src": "images/desktop-1920x1080.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide"
