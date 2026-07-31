@@ -5,8 +5,8 @@
 "background_color": "#ffffff",
 "theme_color": "#00FF00",
 "icons": [
-{ "src": "./images/arc.png",
-"sizes": "50x50",
+{ "src": "./images/head.png",
+"sizes": "144x144",
 "type": "image/png"
 }
 ]
