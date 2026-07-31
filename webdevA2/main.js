@@ -74,7 +74,6 @@ const line3 = document.getElementById("line3");
 const line4 = document.getElementById("line4");
 const line5 = document.getElementById("line5");
 const line6 = document.getElementById("line6");
-const line7 = document.getElementById("line7");
 let openButtons = document.querySelectorAll(".timeline .click");
 
 for (let openBtn of openButtons) {
@@ -91,7 +90,6 @@ for (let openBtn of openButtons) {
         line4.style.display = "none";
         line5.style.display = "none";
         line6.style.display = "none";
-        line7.style.display = "none";
 
         setTimeout(function() {
             overlay.classList.add("showOverlay");
@@ -118,7 +116,6 @@ for (let closeBtn of closeButtons) {
             line4.style.display = "block";
             line5.style.display = "block";
             line6.style.display = "block";
-            line7.style.display = "block";
 
         }, 100);
     });
