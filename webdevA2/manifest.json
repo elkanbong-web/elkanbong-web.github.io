@@ -1,12 +1,12 @@
 { "name": "Archery Origin",
 "short_name": "Archery",
-"start_url": "index.html",
+"start_url": "/index.html",
 "display": "standalone",
 "background_color": "#ffffff",
 "theme_color": "#00FF00",
 "icons": [
 { "src": "./images/arc.png",
-"sizes": "64x64",
+"sizes": "50x50",
 "type": "image/png"
 }
 ]
