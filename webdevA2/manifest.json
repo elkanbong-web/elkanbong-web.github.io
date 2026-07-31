@@ -1,6 +1,6 @@
 { "name": "Archery Origin",
 "short_name": "Archery",
-"start_url": "/index.html",
+"start_url": "/webdevA2/index.html",
 "display": "standalone",
 "background_color": "#ffffff",
 "theme_color": "#00FF00",
